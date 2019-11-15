@@ -8,14 +8,13 @@ unsigned long timey, totalTimey, slowTimey, vSlowTimey, animLength;
 int cycle;
 const byte numLeds = 144;
 const byte numPatterns = 25;
-byte currentPattern = 0;
-byte wheelR;
+byte currentPattern = 0
 byte wheelG;
 byte wheelB;
 bool cycling = true;
 const bool testMode = false;
 
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(numLeds, PIN, NEO_GRBW + NEO_KHZ800);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(numLeds, PIN, NEO_RGB + NEO_KHZ800);
 
 void setup() {
   pinMode(6, INPUT);
