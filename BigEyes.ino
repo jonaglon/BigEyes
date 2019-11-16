@@ -1,12 +1,9 @@
-#include <Adafruit_NeoPixel.h>
-#define PIN 4
-
-// TODO / ToTRY - https://learn.adafruit.com/led-tricks-gamma-correction/the-quick-fix
-// you didn't follow all the instructions properly so try this to see if it makes the colours, particularly rainbowses more betterer.
+#include<Arduino.h>
+#include<Wire.h>
+#include<FastLED.h>
 
 unsigned long timey, totalTimey, slowTimey, vSlowTimey, animLength;
 int cycle;
-const byte numLeds = 188;
 const byte numPatterns = 25;
 byte currentPattern = 0;
 byte wheelR;
@@ -19,7 +16,9 @@ int eyeX, eyeY;
 byte eyePrimaryR, eyePrimaryG, eyePrimaryB;
 byte eyeSecondaryR, eyeSecondaryG, eyeSecondaryB;
 
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(numLeds, PIN, NEO_RGB + NEO_KHZ800);
+// Adafruit_NeoPixel strip = Adafruit_NeoPixel(numLeds, PIN, NEO_RGB + NEO_KHZ800);
+const int numLeds = 360;
+CRGB rgbwLeds[360]; // 180 * 2
 
 void setup() {
   pinMode(6, INPUT);
@@ -27,8 +26,8 @@ void setup() {
   randomSeed(analogRead(0));
   cycle=0;
   animLength=16384;   // 32864; // 8192; 
-  strip.begin();
-  strip.setBrightness(5);
+  LEDS.addLeds<WS2811, 25>(rgbwLeds, 360); // Hardcoded to ports:25,26,27,28,14,15
+  LEDS.setBrightness(30); // 128 good max, 255 actual /max
   if (testMode) {
     Serial.begin(9600);
   }
@@ -41,15 +40,26 @@ void setup() {
   eyeSecondaryR=100; 
   eyeSecondaryG=100; 
   eyeSecondaryB=100;   
+  setupNewTwinklePattern(1);
 }
  
 void loop() {
   setTimes();
-  checkButton();
+  //checkButton();
   doLights();
-  strip.show();
+  LEDS.show();
 }
 
+/*
+ * Circle todo list
+ * Make patterns which use the circles 
+ *     concentric
+ *     squiggles, shere khan eyes
+ *     
+ * Finish inputting coordinates
+ * Some Christmassy patterns
+ * Import the eye stuff and get it working
+ */
 
 void setTimes() {
   totalTimey = millis();
@@ -68,7 +78,8 @@ void doLights() {
     // doAllPatternsOnRotation();
     // TODO! This is just the test pattern.
     // doNormalEyes();
-    doRainbows2();
+    // doRainbows2();
+    doTwinkles();
   } else if (currentPattern < 7) {
     doTwinkles();
   } else if (currentPattern < 8) {

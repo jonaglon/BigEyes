@@ -1,13 +1,13 @@
 
 void allOff() {
-  for(int j = 0; j < strip.numPixels(); j++) {
+  for(int j = 0; j < numLeds; j++) {
     setPixel(j, 0, 0, 0, 0);
   }
 }
 
 
 void allOn(byte r, byte g, byte b, byte w) {
-  for(int j = 0; j < strip.numPixels(); j++) {
+  for(int j = 0; j < numLeds; j++) {
     setPixel(j, r, g, b, w);
   }
 }
@@ -53,5 +53,8 @@ void setPixel(byte pixNum, int r, int g, int b, int w) {
   b = b > 255 ? 255 : b;
   w = w > 255 ? 255 : w;
 
-  strip.setPixelColor(pixNum, r, g, b, w);
+  // strip.setPixelColor(pixNum, r, g, b, w);
+  rgbwLeds[pixNum].r = g;
+  rgbwLeds[pixNum].g = r;
+  rgbwLeds[pixNum].b = b;  
 }
