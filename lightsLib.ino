@@ -19,6 +19,79 @@ int quickAbsolute(int number) {
     return number;
 }
 
+void setGoodRandomColorVars() {
+  int randomNum = random(20);
+  switch (randomNum) {
+    case 0: 
+      goodColR = 255;
+      goodColG = 0;
+      goodColB = 0;
+      goodColW = 0;
+      break;
+    case 1: 
+      goodColR = 0;
+      goodColG = 255;
+      goodColB = 0;
+      goodColW = 0;
+      break;
+    case 2: 
+      goodColR = 0;
+      goodColG = 0;
+      goodColB = 255;
+      goodColW = 0;
+      break;
+    case 3: 
+      goodColR = 0;
+      goodColG = 0;
+      goodColB = 0;
+      goodColW = 255;
+      break;
+    case 4: 
+      goodColR = 245;
+      goodColG = 7;
+      goodColB = 225;
+      goodColW = 0;
+      break;
+    case 5: 
+      goodColR = 245;
+      goodColG = 140;
+      goodColB = 7;
+      goodColW = 0;
+      break;
+    case 6: 
+      goodColR = 2;
+      goodColG = 133;
+      goodColB = 142;
+      goodColW = 0;
+      break;
+    case 7: 
+      goodColR = 0;
+      goodColG = 40;
+      goodColB = 160;
+      goodColW = 255;
+      break;
+    case 8: 
+      goodColR = 82;
+      goodColG = 104;
+      goodColB = 4;
+      goodColW = 0;
+      break;
+    case 9: 
+      goodColR = 120;
+      goodColG = 50;
+      goodColB = 130;
+      goodColW = 0;
+      break;
+    default: 
+      SetRgbwWheelVars(random(255));
+      goodColR = wheelR;
+      goodColG = wheelG;
+      goodColB = wheelB;
+      goodColW = 0;
+      break;
+  }
+}
+
 void SetRgbwWheelVars(int WheelPos) {
   WheelPos = 255 - WheelPos;
   if(WheelPos < 85) {
@@ -38,6 +111,42 @@ void SetRgbwWheelVars(int WheelPos) {
   wheelR = WheelPos * 3;
   wheelG = 255 - WheelPos * 3;
   wheelB = 0;
+  return;
+}
+
+void SetRgbwWhitePulse(int WheelPos) {
+  WheelPos = 255 - WheelPos;
+  if(WheelPos < 85) {
+    wheelR = WheelPos * 3;
+    wheelG = WheelPos * 3;
+    wheelB = WheelPos * 3;
+    return;
+  }
+  if(WheelPos < 170) {
+    WheelPos -= 85;
+    wheelR = 255 - WheelPos * 3;
+    wheelG = 255 - WheelPos * 3;
+    wheelB = 255 - WheelPos * 3;
+    return;
+  }
+  wheelR = 0;
+  wheelG = 0;
+  wheelB = 0;
+  return;
+}
+
+void SetRgbwWheelVarsBlueToWhite(int WheelPos) {
+  WheelPos = 255 - WheelPos;
+  if(WheelPos < 128) {
+    wheelR = 255 - WheelPos * 2;
+    wheelG = 255 - WheelPos * 2;
+    wheelB = WheelPos * 2;
+    return;
+  }
+  WheelPos -= 128;
+  wheelR = WheelPos * 2;
+  wheelG = WheelPos * 2;
+  wheelB = 255 - WheelPos * 3;
   return;
 }
 

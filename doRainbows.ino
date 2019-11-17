@@ -34,3 +34,41 @@ void doRainbows4() {
     setPixel(pixNum, wheelR, wheelG, wheelB, 0);
   }  
 }
+
+void allOverRainbow1() {
+  for(int j = 0; j < 181; j++) {
+    int xCoord = getCoord(j,0)-100;
+    int yCoord = getCoord(j,1)-105;
+    SetRgbwWheelVars((xCoord+yCoord+(timey/16))%256);
+    setLedDirect(j, wheelR, wheelG, wheelB, 0, false);    
+  }
+}
+
+void doConcentricRainbow1() {
+  
+  for (int j = 0; j < 181; j++) { 
+    int x = quickAbsolute(100-eyeCoords[j][0]);
+    int y = quickAbsolute(105-eyeCoords[j][1]);
+    SetRgbwWheelVars((x-y-(timey/16))%256);
+    setLedDirect(j, wheelR, wheelG, wheelB, 0, false);    
+  }
+}
+
+void doConcentricRainbow2() {
+  
+  for (int j = 0; j < 181; j++) { 
+    int x = quickAbsolute(100-eyeCoords[j][0]);
+    int y = quickAbsolute(105-eyeCoords[j][1]);
+    SetRgbwWhitePulse(((timey/16)-x-y)%256);
+    setLedDirect(j, wheelR, wheelG, wheelB, 0, false);    
+  }
+}
+
+
+int getCoord(int ledNum, int xOrY) {
+  return eyeCoords[ledNum][xOrY];
+}
+
+void setLedDirect(int led, byte r, byte g, byte b, int meh, bool meh2) {
+  setPixel(led, r, g, b, 0);
+}
