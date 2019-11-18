@@ -5,7 +5,7 @@ void doRainbowCircles() {
     int ledToLightFrom = circleFirstLeds[j-1];
     int ledToLightTo = circleFirstLeds[j];
     for (int led = ledToLightFrom; led < ledToLightTo; led++) { 
-      SetRgbwWheelVars(((timey/16)+(j*20))%256);
+      SetRgbwWheelVars(((totalTimey/16)+(j*20))%256);
       setLedDirect(led, wheelR, wheelG, wheelB, 0, false);    
     }
   }  
