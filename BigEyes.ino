@@ -84,8 +84,8 @@ void doLights() {
     // doAllPatternsOnRotation();
     // TODO! This is just the test pattern.
     // doTwinkles();
+    doWhitePulse();
     doSnowflake();
-    //doConcentricRainbow2();
   } else if (currentPattern < 7) {
     doTwinkles();
   } else if (currentPattern < 8) {

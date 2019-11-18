@@ -59,6 +59,16 @@ void doConcentricRainbow2() {
   for (int j = 0; j < 181; j++) { 
     int x = quickAbsolute(100-eyeCoords[j][0]);
     int y = quickAbsolute(105-eyeCoords[j][1]);
+    SetRgbwWheelVars(((timey/16)-x-y)%256);
+    setLedDirect(j, wheelR, wheelG, wheelB, 0, false);    
+  }
+}
+
+void doWhitePulse() {
+  
+  for (int j = 0; j < 181; j++) { 
+    int x = quickAbsolute(100-eyeCoords[j][0]);
+    int y = quickAbsolute(105-eyeCoords[j][1]);
     SetRgbwWhitePulse(((timey/16)-x-y)%256);
     setLedDirect(j, wheelR, wheelG, wheelB, 0, false);    
   }
