@@ -87,7 +87,7 @@ void stripesPattern() {
         xOrY = 1;
       int coord = getCoord(j,xOrY);
       if ((coord > stripeBeatPos) && (coord < stripeBeatPos+stripePatterns[stripeNum].width)) {
-        setLedDirect(j, stripePatterns[stripeNum].stripeR, stripePatterns[stripeNum].stripeG, stripePatterns[stripeNum].stripeB, stripePatterns[stripeNum].stripeW, false);
+        setLedDirect(j, stripePatterns[stripeNum].stripeR, stripePatterns[stripeNum].stripeG, stripePatterns[stripeNum].stripeB, stripePatterns[stripeNum].stripeW);
       }
     }   
   }

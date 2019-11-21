@@ -1,7 +1,7 @@
 void doNormalEyes() {
 
   //for(int j = 0; j < 181; j++) {
-  //  setPixel(j, eyePrimaryR, eyePrimaryG, eyePrimaryB, 0);
+  //  setLedDirect(j, eyePrimaryR, eyePrimaryG, eyePrimaryB, 0);
   //}
 
   // iris
@@ -20,7 +20,7 @@ void drawEyeHexagon(int xCoord, int  yCoord, int pupilRadius, int maxRadius, int
         int x = quickAbsolute(xCoord-eyeCoords[j][0]);
         int y = quickAbsolute(yCoord-eyeCoords[j][1]);
         if (x + y < maxRadius) {
-          setPixel(j, r, g, b, w);
+          setLedDirect(j, r, g, b, w);
         }
       }
     }
@@ -31,7 +31,7 @@ void drawEyeSquare(int xCoord, int  yCoord, int radius, int r, int g, int b, int
   for(int j = 0; j < 181; j++) { 
     if ((eyeCoords[j][0] < (xCoord+radius)) && (eyeCoords[j][1] < (yCoord+radius))) {
       if ((eyeCoords[j][0] > (xCoord-radius)) && (eyeCoords[j][1] > (yCoord-radius))) {
-        setPixel(j, r, g, b, w);
+        setLedDirect(j, r, g, b, w);
       }
     }
   }

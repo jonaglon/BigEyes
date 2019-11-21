@@ -812,7 +812,7 @@ void doStar() {
       int x = quickAbsolute(100-eyeCoords[led][0]);
       int y = quickAbsolute(105-eyeCoords[led][1]);
       SetRgbwWheelVars(((timey/64)-x-y)%256);
-      setLedDirect(led, wheelR, wheelG, wheelB, 0, false);    
+      setLedDirect(led, wheelR, wheelG, wheelB, 0);    
     }
   }
 }
@@ -831,7 +831,7 @@ void doSnowflake() {
         int ledToLightTo = circleFirstLeds[j];
         SetRgbwWheelVarsBlueToWhite(((totalTimey/16)+(j*20))%256);
         if (led >= ledToLightFrom && led < ledToLightTo) { 
-          setLedDirect(led, wheelR, wheelG, wheelB, 0, false);    
+          setLedDirect(led, wheelR, wheelG, wheelB, 0);    
         }
       }
     }
@@ -841,7 +841,7 @@ void doSnowflake() {
         int ledToLightTo = circleFirstLeds[j];
         SetRgbwWheelVarsBlueToWhite(((totalTimey/24)+(j*18))%256);
         if (led >= ledToLightFrom && led < ledToLightTo) { 
-          setLedDirect(led, wheelR, wheelG, wheelB, 0, false);    
+          setLedDirect(led, wheelR, wheelG, wheelB, 0);    
         }
       }
     }

@@ -22,12 +22,12 @@ void doCycles() {
 
 void doColour(byte r, byte g, byte b) {
   for (int pixNum = 0; pixNum < numLeds; pixNum++) {
-    setPixel(pixNum, r, g, b, 0);
+    setLedDirect(pixNum, r, g, b, 0);
   }
 }
 
 void doColour(byte r, byte g, byte b, byte w) {
   for (int pixNum = 0; pixNum < numLeds; pixNum++) {
-    setPixel(pixNum, r, g, b, w);
+    setLedDirect(pixNum, r, g, b, w);
   }
 }

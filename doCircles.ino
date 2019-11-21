@@ -6,7 +6,7 @@ void doRainbowCircles() {
     int ledToLightTo = circleFirstLeds[j];
     for (int led = ledToLightFrom; led < ledToLightTo; led++) { 
       SetRgbwWheelVars(((totalTimey/16)+(j*20))%256);
-      setLedDirect(led, wheelR, wheelG, wheelB, 0, false);    
+      setLedDirect(led, wheelR, wheelG, wheelB, 0);    
     }
   }  
 }
@@ -18,7 +18,7 @@ void doCrazyCircles() {
     for (int led = ledToLightFrom; led < ledToLightTo; led++) { 
       SetRgbwWheelVars(((timey/16)+(j*20))%256);
       int dimmer = ((timey/32)+(-j*20))%256;
-      setLedDirect(led, wheelR-dimmer, (wheelG-dimmer)/2, wheelB-dimmer, 0, false);    
+      setLedDirect(led, wheelR-dimmer, (wheelG-dimmer)/2, wheelB-dimmer, 0);    
     }
   }  
 }

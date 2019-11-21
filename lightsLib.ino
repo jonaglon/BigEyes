@@ -1,14 +1,14 @@
 
 void allOff() {
   for(int j = 0; j < actualNumLeds; j++) {
-    setPixel(j, 0, 0, 0, 0);
+    setLedDirect(j, 0, 0, 0, 0);
   }
 }
 
 
 void allOn(byte r, byte g, byte b, byte w) {
   for(int j = 0; j < numLeds; j++) {
-    setPixel(j, r, g, b, w);
+    setLedDirect(j, r, g, b, w);
   }
 }
 
@@ -150,7 +150,7 @@ void SetRgbwWheelVarsBlueToWhite(int WheelPos) {
   return;
 }
 
-void setLedDirect(int led, byte r, byte g, byte b, int meh, bool meh2) {
+void setLedDirect(int led, byte r, byte g, byte b, int meh) {
   if (led > numLeds || led <0)
     return;
     

@@ -71,11 +71,8 @@ void doLights() {
 
   if (currentPattern < 1) {
     // doAllPatternsOnRotation();
-    // TODO! This is just the test pattern.
-    // doTwinkles();
-    // doWhitePulse();
     doStar();
-    doSnowflake();
+    doSnowflake();    
   } else if (currentPattern < 7) {
     doTwinkles();
   } else if (currentPattern < 8) {
@@ -145,7 +142,8 @@ void doAllPatternsOnRotation() {
   } else if (patternCycle < 2) {
     doRainbows2();
   } else if (patternCycle < 3) {
-    doCycles();
+    doStar();
+    doSnowflake();
   } else if (patternCycle < 4) {
     doTwinkles();
   } else if (patternCycle < 5) {
@@ -161,13 +159,14 @@ void doAllPatternsOnRotation() {
   } else if (patternCycle < 10) {
     doTwinkles();
   } else if (patternCycle < 11) {
-    doKnightRiderLights();
+    doStar();
+    doSnowflake();
   } else if (patternCycle < 12) {
     doTwinkles();
   } else if (patternCycle < 13) {
     doRainbows3();
   } else if (patternCycle < 14) {
-    doTwinkles();
+    doKnightRiderLights();
   }
  
 }

@@ -153,8 +153,8 @@ void setLedsFadeIn(int ledNum, int twinky, bool rolledOver) {
     int minusFade = myTwinkles[twinky].sideFade * ledToLight;
     int offsetPlus = ledNum + ledToLight;
     int offsetMinus = ledNum - ledToLight;
-    setPixel(offsetPlus, newRed-minusFade, newGreen-minusFade, newBlue-minusFade, 0);
-    setPixel(offsetMinus, newRed-minusFade, newGreen-minusFade, newBlue-minusFade, 0);
+    setLedDirect(offsetPlus, newRed-minusFade, newGreen-minusFade, newBlue-minusFade, 0);
+    setLedDirect(offsetMinus, newRed-minusFade, newGreen-minusFade, newBlue-minusFade, 0);
   }
 }
 
@@ -195,8 +195,8 @@ void setLedsOnFull(int ledNum, int twinky, bool rolledOver) {
     int minusFade = myTwinkles[twinky].sideFade * ledToLight;
     int offsetPlus = ledNum + ledToLight;
     int offsetMinus = ledNum - ledToLight;
-    setPixel(offsetPlus, newRed-minusFade, newGreen-minusFade, newBlue-minusFade, 0);
-    setPixel(offsetMinus, newRed-minusFade, newGreen-minusFade, newBlue-minusFade, 0);
+    setLedDirect(offsetPlus, newRed-minusFade, newGreen-minusFade, newBlue-minusFade, 0);
+    setLedDirect(offsetMinus, newRed-minusFade, newGreen-minusFade, newBlue-minusFade, 0);
   }
 }
 
@@ -248,8 +248,8 @@ void setLedsFadeOut(int ledNum, int twinky, bool rolledOver) {
     int minusFade = myTwinkles[twinky].sideFade * ledToLight;
     int offsetPlus = ledNum + ledToLight;
     int offsetMinus = ledNum - ledToLight;
-    setPixel(offsetPlus, newRed-minusFade, newGreen-minusFade, newBlue-minusFade, 0);
-    setPixel(offsetMinus, newRed-minusFade, newGreen-minusFade, newBlue-minusFade, 0);
+    setLedDirect(offsetPlus, newRed-minusFade, newGreen-minusFade, newBlue-minusFade, 0);
+    setLedDirect(offsetMinus, newRed-minusFade, newGreen-minusFade, newBlue-minusFade, 0);
   }
 }
 
