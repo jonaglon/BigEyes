@@ -1,6 +1,6 @@
 
 void allOff() {
-  for(int j = 0; j < numLeds; j++) {
+  for(int j = 0; j < actualNumLeds; j++) {
     setPixel(j, 0, 0, 0, 0);
   }
 }
@@ -150,7 +150,15 @@ void SetRgbwWheelVarsBlueToWhite(int WheelPos) {
   return;
 }
 
-void setPixel(byte pixNum, int r, int g, int b, int w) {
+void setLedDirect(int led, byte r, byte g, byte b, int meh, bool meh2) {
+  if (led > numLeds || led <0)
+    return;
+    
+  setPixel(led, r, g, b, 0);  
+  setPixel(led+181, r, g, b, 0);  
+}
+
+void setPixel(int pixNum, int r, int g, int b, int w) {
 
   r = r < 0 ? 0 : r;
   g = g < 0 ? 0 : g;

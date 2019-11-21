@@ -9,7 +9,7 @@ byte currentPattern = 0;
 byte wheelR;
 byte wheelG;
 byte wheelB;
-bool cycling = true;
+
 const bool testMode = false;
 
 byte goodColR, goodColG, goodColB, goodColW;
@@ -18,9 +18,12 @@ int eyeX, eyeY;
 byte eyePrimaryR, eyePrimaryG, eyePrimaryB;
 byte eyeSecondaryR, eyeSecondaryG, eyeSecondaryB;
 
-// Adafruit_NeoPixel strip = Adafruit_NeoPixel(numLeds, PIN, NEO_RGB + NEO_KHZ800);
-const int numLeds = 362;
-CRGB rgbwLeds[362]; // 181 * 2
+#define NUM_LEDS_PER_STRIP 181
+#define NUM_STRIPS 2
+CRGB rgbwLeds[NUM_LEDS_PER_STRIP * NUM_STRIPS];
+
+const int numLeds = 181;
+const int actualNumLeds = NUM_LEDS_PER_STRIP * NUM_STRIPS;
 
 void setup() {
   pinMode(6, INPUT);
@@ -28,7 +31,7 @@ void setup() {
   randomSeed(analogRead(0));
   cycle=0;
   animLength=16384;   // 32864; // 8192; 
-  LEDS.addLeds<WS2811, 25>(rgbwLeds, 360); // Hardcoded to ports:25,26,27,28,14,15
+  LEDS.addLeds<WS2811_PORTD, NUM_STRIPS>(rgbwLeds, NUM_LEDS_PER_STRIP); // Hardcoded to ports:25,26,27,28,14,15
   LEDS.setBrightness(30); // 128 good max, 255 actual /max
   if (testMode) {
     Serial.begin(9600);
@@ -52,20 +55,6 @@ void loop() {
   LEDS.show();
 }
 
-/*
- * Circle todo list
- * Make patterns which use the circles 
- *     concentric
- *     squiggles, shere khan eyes.
- * 
- * Fix stripes.
- *     
- * x Finish inputting coordinates
- * Some Christmassy patterns. Look at pac man animation, do 2 or 3 masks with 9 or 12, 4, 3 steps so they don't always concur.
- * do green blue white version of r g b 
- * Import the eye stuff, pac man etc, get it working
- * Stripes and others from 
- */
 
 void setTimes() {
   totalTimey = millis();

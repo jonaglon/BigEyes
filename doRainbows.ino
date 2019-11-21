@@ -78,7 +78,3 @@ void doWhitePulse() {
 int getCoord(int ledNum, int xOrY) {
   return eyeCoords[ledNum][xOrY];
 }
-
-void setLedDirect(int led, byte r, byte g, byte b, int meh, bool meh2) {
-  setPixel(led, r, g, b, 0);
-}

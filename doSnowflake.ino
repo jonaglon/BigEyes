@@ -813,7 +813,6 @@ void doStar() {
       int y = quickAbsolute(105-eyeCoords[led][1]);
       SetRgbwWheelVars(((timey/64)-x-y)%256);
       setLedDirect(led, wheelR, wheelG, wheelB, 0, false);    
-      //setPixel(led, 100, 100, 100, 0);
     }
   }
 }
@@ -826,7 +825,6 @@ void doSnowflake() {
   int animationStep2 = (totalTimey / 192)%12;
   
   for(int led = 0; led < 181; led++) {
-    // setPixel(led, 0, 0, 0, 0);
     if (getSnowflakeAnimationMask1(animationStep1,led)) {
       for (int j = 1; j < 10; j++) { 
         int ledToLightFrom = circleFirstLeds[j-1];
